@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\Location;
 class LocationCategory extends Model
 {
     public $guarded = [];
@@ -15,5 +15,11 @@ class LocationCategory extends Model
     		'location_category' => 'required|max:225',
     		'colour' => 'max:7',
     	];
+    }
+
+    public function locations()
+
+    {
+    	return $this->hasMany(Location::class);
     }
 }

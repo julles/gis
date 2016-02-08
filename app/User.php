@@ -66,4 +66,6 @@ class User extends Model implements AuthenticatableContract,
             'verify_password' => 'required|same:password',
         ];
     }
+
+
 }
