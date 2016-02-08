@@ -11,7 +11,7 @@ Official Development Repo
 Clone Source Code dengan mengetikan script berikut
 
 ```sh
-https://github.com/julles/gis
+https://github.com/julles/gis.git
 ```
 
 lalu masuk root project menggunakan cmd lalu ketikan script berikut
