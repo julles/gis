@@ -32,7 +32,7 @@
           </li>
       
         @endforeach
-      
+        <li><a href="{{ url('auth/logout') }}">Logout</a></li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>

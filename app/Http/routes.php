@@ -7,15 +7,23 @@
  */
 
 // routes dynamic from DB
-if(\Schema::hasTable('menus'))
-{	
-	Route::get('/' , function(){
-		return redirect('home/index');
-	});
 
-	foreach(Helper::injectModel('Menu')->where('controller' , '!=' , '#')->get() as $row)
-	{
-			Route::controller($row->slug , $row->controller);
+Route::controller('auth' , 'AuthController');
+
+Route::group(['middleware' => ['auth']  ,'prefix' => '/'] , function(){
+
+	if(\Schema::hasTable('menus'))
+	{	
+		Route::get('/' , function(){
+			return redirect('home/index');
+		});
+
+		foreach(Helper::injectModel('Menu')->where('controller' , '!=' , '#')->get() as $row)
+		{
+				Route::controller($row->slug , $row->controller);
+		}
 	}
-}
+
+});
+	
 // 
