@@ -39,6 +39,10 @@ class UserController extends GisController
     	->join('roles' , 'roles.id' , '=' ,'users.role_id');
 
     	$data = \Datatables::of($model)
+    	->addColumn('status' , function($model){
+    		
+    		return ($model->status == 0) ? 'Active' : 'In Active';
+    	})
     	->addColumn('action' , function($model){
     		
     		return \Helper::buttons($model->id);

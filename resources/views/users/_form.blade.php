@@ -61,7 +61,14 @@
 					 	{!! Form::password('verify_password'  , ['class' => 'form-control']) !!}
 					</div>
 				</div>
-				  
+				 
+				<div class="form-group">
+					<label class="control-label col-sm-2">Status:</label>
+					<div class="col-sm-10">
+					 	{!! Form::select('status' ,['0' => 'active' , '1' => 'in active'], null , ['class' => 'form-control']) !!}
+					</div>
+				</div>
+
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 					  <button type="submit" class="btn btn-default">Submit</button>

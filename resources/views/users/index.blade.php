@@ -22,6 +22,7 @@
 						<td>Name</td>
 						<td>Email</td>
 						<td>Phone</td>
+						<td>Status</td>
 						<td>Action</td>
 					</tr>
 				</thead>
@@ -49,6 +50,7 @@
 	            { data: 'fullname', name: 'fullname' },
 	            { data: 'email', name: 'email' },
 	            { data: 'phone', name: 'phone' },
+	            { data: 'status', name: 'status' },
 	            { data: 'action', name: 'action' ,"searchable": false ,'orderable' : false},
 	        ]
 	    });
