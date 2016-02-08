@@ -49,10 +49,18 @@ class User extends Model implements AuthenticatableContract,
     public function rules($id = "")
 
     {
+
+        if(!empty($id))
+        {
+            $email = ',email,'.$id;
+        }else{
+            $email = '';
+        }
+
         return [
 
             'fullname' => 'required|max:60',
-            'email' => 'required|max:60|unique:users',
+            'email' => 'required|max:60|unique:users'.$email,
             'phone' => 'required|max:16',
             'password' => 'required|min:3',
             'verify_password' => 'required|same:password',
