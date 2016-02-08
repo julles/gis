@@ -13,7 +13,7 @@ if(\Schema::hasTable('menus'))
 		return redirect('home/index');
 	});
 
-	foreach(Helper::injectModel('Menu')->get() as $row)
+	foreach(Helper::injectModel('Menu')->where('controller' , '!=' , '#')->get() as $row)
 	{
 			Route::controller($row->slug , $row->controller);
 	}

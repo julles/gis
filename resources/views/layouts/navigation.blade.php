@@ -11,10 +11,30 @@
     </div>
     <div id="navbar" class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
+      
         @foreach($modelMenu->whereParentId(0)->orderBy('order')->get() as $parent)
-          <li class="active"><a href="{{ url($parent->slug) }}/index">{{ $parent->title }}</a></li>
+        
+        <?php
+        $childs = $modelMenu->whereParentId($parent->id);
+        ?>
+
+          <li class="{{ $childs->count() > 0 ? 'dropdown' : '' }}">
+            @if($childs->count() > 0)
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ $parent->title }} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                @foreach($childs->get() as $child)
+                  <li><a href="{{ url($child->slug) }}/index">{{ $child->title }}</a></li>
+                @endforeach
+              </ul>
+            @else
+              <a href="{{ url($parent->slug) }}/index">{{ $parent->title }}</a>
+            @endif
+          </li>
+      
         @endforeach
+      
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
+
