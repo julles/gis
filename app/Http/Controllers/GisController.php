@@ -21,14 +21,14 @@ class GisController extends Controller
 
     {
     	$this->menu = new Menu;
-        $slug = \Request::segment(1);
+        $slug = request()->segment(1);
         if($slug != 'auth')
         {
             $this->menuActive = $this->menu->whereSlug($slug)->first();
 
             $this->breadCrumbs = [
                 $this->menuActive->title,
-                \Request::segment(2),
+                request()->segment(2),
             ];
         }else{
             $this->breadCrumbs = ['Login'];

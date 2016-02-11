@@ -10,6 +10,27 @@ class Location extends Model
 {
     public $guarded = [];
 
+    public function rules()
+
+    {
+    	return [
+
+    		'user_id' => 'required',
+    		'location_category_id'=> 'required',
+    		'longitude' => 'required|max:255',
+    		'latitude' => 'required|max:255',
+    		'title' => 'required|max:255',
+		];
+    }
+
+    public function messages()
+
+    {
+    	return [
+    		'user_id.required' => 'The user field is required',
+    	];
+    }
+
     public function user()
 
     {

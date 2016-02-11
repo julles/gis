@@ -45,7 +45,7 @@ class Helper
 	public function url($url)
 	
 	{
-		return url(\Request::segment(1).'/'.$url);
+		return url(request()->segment(1).'/'.$url);
 	}
 
 	public function buttonUpdate($id = "")
